@@ -1,6 +1,7 @@
 /**
- * @Author Richard
- * @Date Jun 6, 2016
+ * This draws a house with two windows, a door, and a triangular roof.
+ * 
+ * @author Richard Huang
  */
 public class DrawHouseDriver {
 
