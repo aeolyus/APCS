@@ -10,6 +10,6 @@ public class DrawHouseDriver {
 		DrawHouse myHouse = new DrawHouse();
 		myHouse.draw();
 
-}// end method main
+	}// end method main
 
 } // end class
