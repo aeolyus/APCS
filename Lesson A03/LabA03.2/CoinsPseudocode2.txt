@@ -1,0 +1,15 @@
+BEGIN Coins
+	c=coins
+	PRINT c+" cents =>"
+	q=c/25
+	c-=*25
+	PRINT "Quarters(s) "+q
+	d=c/10
+	c-=d*10
+	PRINT "Dime(s) "+d
+	n=c/5
+	c-=n*5
+	PRINT "Nickel(s)+n
+	p=c
+	PRINT "Penny(s)+p
+END
