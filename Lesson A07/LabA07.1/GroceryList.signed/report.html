@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="1608242451278539678864314820"/>
+<meta name="Problem" content="1608231455f0ifnc5x5h1rhc35c5dj3zkuu"/>
+<meta name="Level" content="1"/>
+<meta name="Time" content="2016-08-24T00:51:59Z"/>
+<meta name="ID" content="GroceryList"/>
+<meta name="User" content="16081814421037668478956874175"/>
+<meta name="Elapsed" content="2881 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header run">Testing GroceryListDriver.java</p>
+<p class="caption">Command line arguments:</p>
+<pre class="output">Enter item#1: 5.72
+Enter item#2: 2.59 
+Enter item#3: 8.45 
+Enter item#4: 3.50
+Enter item#5: 9.34
+     item:     cost:    total:
+        #1      5.72      5.72
+        #2      2.59      8.31
+        #3      8.45     16.76
+        #4      3.50     20.26
+        #5      9.34     29.60</pre>
+<span class="pass">pass</span><p class="header studentFiles">Student files</p>
+<p class="caption">GroceryList.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+<span class="linenumber"> 45</span>
+<span class="linenumber"> 46</span>
+<span class="linenumber"> 47</span>
+<span class="linenumber"> 48</span>
+<span class="linenumber"> 49</span>
+</pre></td><td><pre>import java.util.Scanner;
+/**
+ * @author Richard Huang
+ * period 1
+*/
+public class GroceryList{
+	//initializes scanner object in and double total
+	Scanner in = new Scanner(System.in);
+	private double total;
+	
+	//default constructor
+	public GroceryList(){
+	}
+	
+	//calculate method
+	public void calculate(){
+		//input grocery item prices
+		System.out.print("Enter item#1: ");
+		double item1=in.nextDouble();
+		System.out.print("Enter item#2: ");
+		double item2=in.nextDouble();
+		System.out.print("Enter item#3: ");
+		double item3=in.nextDouble();
+		System.out.print("Enter item#4: ");
+		double item4=in.nextDouble();
+		System.out.print("Enter item#5: ");
+		double item5=in.nextDouble();
+		
+		//print column titles
+		System.out.printf("%10s%10s%10s","item:", "cost:", "total:");
+		System.out.println();
+		
+		//print item number, price, and total value of all current items
+		total+=item1;
+		System.out.printf("%10s%10.2f%10.2f","#1", item1, total);
+		System.out.println();
+		total+=item2;
+		System.out.printf("%10s%10.2f%10.2f","#2", item2, total);
+		System.out.println();
+		total+=item3;
+		System.out.printf("%10s%10.2f%10.2f","#3", item3, total);
+		System.out.println();
+		total+=item4;
+		System.out.printf("%10s%10.2f%10.2f","#4", item4, total);
+		System.out.println();
+		total+=item5;
+		System.out.printf("%10s%10.2f%10.2f","#5", item5, total);
+		}	
+}
+</pre></td></tr></table>
+<p class="header providedFiles">Provided files</p>
+<p class="caption">GroceryListDriver.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+</pre></td><td><pre>
+public class GroceryListDriver {
+	public static void main(String[] args) {
+		GroceryList gl = new GroceryList();
+		gl.calculate();
+
+	}
+
+}
+</pre></td></tr></table>
+<p class="header score">Score</p>
+<p class="score">1/1</p>
+<p class="download"><a href="GroceryList.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2016-08-24T00:51:59Z</div>
+</div>
+</body></html>

@@ -1,0 +1,26 @@
+BEGIN fillUp
+
+	currentOdometer=userInput.nextInt
+	gallonsConsumed=userInput.nextDouble
+
+END
+
+
+
+
+BEGIN calculateMPG
+
+	(currentOdometer-startOdometer)/gallonsConsumed
+
+END
+
+
+
+
+BEGIN resetMPG
+
+	startOdometer=currentOdometer
+
+	gallonsConsumed=0
+
+END

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="16081815087168665467523597734"/>
+<meta name="Problem" content="160815142948jekv7as42ax6zwiy9brsovd"/>
+<meta name="Level" content="1"/>
+<meta name="Time" content="2016-08-18T15:08:25Z"/>
+<meta name="ID" content="Coins"/>
+<meta name="User" content="16081814421037668478956874175"/>
+<meta name="Elapsed" content="1399 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header run">Testing CoinsDriver.java</p>
+<p class="caption">Command line arguments:</p>
+<pre class="output">Enter the cents: 35
+35 cents =&gt;
+Quarter(s) 1
+Dime(s) 1
+Nickel(s) 0
+Penny(s) 0
+Enter the cents: 41
+41 cents =&gt;
+Quarter(s) 1
+Dime(s) 1
+Nickel(s) 1
+Penny(s) 1
+Enter the cents: 94
+94 cents =&gt;
+Quarter(s) 3
+Dime(s) 1
+Nickel(s) 1
+Penny(s) 4
+Enter the cents: 59
+59 cents =&gt;
+Quarter(s) 2
+Dime(s) 0
+Nickel(s) 1
+Penny(s) 4
+Enter the cents: 19
+19 cents =&gt;
+Quarter(s) 0
+Dime(s) 1
+Nickel(s) 1
+Penny(s) 4
+Enter the cents: 76
+76 cents =&gt;
+Quarter(s) 3
+Dime(s) 0
+Nickel(s) 0
+Penny(s) 1
+Enter the cents: 127
+127 cents =&gt;
+Quarter(s) 5
+Dime(s) 0
+Nickel(s) 0
+Penny(s) 2
+Enter the cents: 28
+28 cents =&gt;
+Quarter(s) 1
+Dime(s) 0
+Nickel(s) 0
+Penny(s) 3
+Enter the cents: 63
+63 cents =&gt;
+Quarter(s) 2
+Dime(s) 1
+Nickel(s) 0
+Penny(s) 3
+Enter the cents: 0
+</pre>
+<span class="pass">pass</span><p class="header studentFiles">Student files</p>
+<p class="caption">Coins.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+</pre></td><td><pre>/**
+ * @author Richard Huang
+ * Period 1
+ */
+public class Coins {
+	private int c;
+	public Coins(int coins){
+		c=coins;
+	}
+	public void change(){
+		System.out.println(c+" cents =&gt;");
+		int q = c/25;
+		c-=q*25;
+		System.out.println("Quarter(s) "+q);
+		int d = c/10;
+		c-=d*10;
+		System.out.println("Dime(s) "+d);
+		int n = c/5;
+		c-=n*5;
+		System.out.println("Nickel(s) "+n);
+		int p =c;
+		System.out.println("Penny(s) "+p);
+	}
+}
+</pre></td></tr></table>
+<p class="header providedFiles">Provided files</p>
+<p class="caption">CoinsDriver.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+</pre></td><td><pre>import java.util.Scanner;
+
+public class CoinsDriver {
+	public static void main(String[] args) {
+		boolean done = false;
+		Scanner sc = new Scanner(System.in);
+		while (!done) {
+			// Ask for input
+			System.out.print("Enter the cents: ");
+
+
+			// Read in data
+			int money = sc.nextInt();
+			if (money == 0) done = true;
+			else {
+				// Calculate change
+				Coins c = new Coins(money);
+				c.change();
+			}
+		} 
+		sc.close();
+	}// end main
+}// end class
+</pre></td></tr></table>
+<p class="header score">Score</p>
+<p class="score">1/1</p>
+<p class="download"><a href="Coins.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2016-08-18T15:08:25Z</div>
+</div>
+</body></html>
