@@ -1,0 +1,63 @@
+BEGIN calculateSalePrice
+	return unitPrice-unitPrice*discount/100
+END
+
+BEGIN setName(myName)
+	name=myName
+END
+
+BEGIN setCost(myCost)
+	cost=myCost
+END
+
+BEGIN setPrice(myPrice)
+	price=myPrice
+END
+
+BEGIN setDiscount(myDiscount)
+	discount=myDiscount
+END
+
+BEGIN setQuantitySold(myQuantity)
+	quantity=myQuantity
+END
+
+BEGIN setComapny(mycompanyName)
+	companyName=myCompanyName
+END
+
+BEGIN getName
+	return name
+END
+
+BEGIN getCost
+	return cost
+END
+
+BEGIN getPrice
+	return price
+END
+
+BEGIN getDiscount
+	return discount
+END
+
+BEGIN getSalePrice
+	return unitSalePrice=calculateSalePrice
+END
+
+BEGIN getQuantitySold
+	return quantitySold
+END
+
+BEGIN getCompanyName
+	return companyName
+END
+
+BEGIN unitProfit
+	return unitSalePrice-cost
+END
+
+BEGIN totalProfit
+	return unitProfit*quantitySold
+END
