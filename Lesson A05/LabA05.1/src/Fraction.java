@@ -51,7 +51,7 @@ public class Fraction {
 		n+=d*m;
 		Fraction frac=new Fraction(n,d);
 		return frac;
-		
+
 	}
 	public Fraction multiply(Fraction other){//multiplie a fraction with another fraction
 		Fraction frac=new Fraction(n*other.getNumerator(),d*other.getDenominator());
@@ -67,12 +67,12 @@ public class Fraction {
 		return frac;
 	}
 	public String toString(){//converts Fraction to a string
-        if (d < 0) {
-           n = -n;
-           d = -d;
-        } 
-        Fraction frac = new Fraction(n,d);
-        frac=frac.reduce();
+		if (d < 0) {
+			n = -n;
+			d = -d;
+		}
+		Fraction frac = new Fraction(n,d);
+		frac=frac.reduce();
 		return frac.getNumerator()+"/"+frac.getDenominator();
 	}
 }
