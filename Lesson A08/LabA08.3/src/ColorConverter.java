@@ -1,4 +1,5 @@
 /**
+ * Class to convert RGB to HSV and HSV to RGB
  * @author: Richard Huang
  */
 public class ColorConverter{

@@ -1,4 +1,5 @@
 /**
+ * Question A2 on 2010 AP Exam
  * @author Richard Huang
  */
 public class APLine {
