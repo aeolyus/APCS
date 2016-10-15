@@ -18,7 +18,7 @@ public class WriteSequence {
 				System.out.print((n+1)/2+" ");
 				write(n-2);
 				System.out.print((n+1)/2+" ");
-		}
+			}
 		}
 	}
 }
