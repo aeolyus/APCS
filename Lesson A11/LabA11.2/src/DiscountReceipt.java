@@ -11,7 +11,7 @@ public class DiscountReceipt extends GroceryReceipt{
 	 * Initializes the clerk to the passed in employee,
 	 * the receipt to an empty string, total, internalDiscount to 0
 	 * and the preferred flag to the passed in value
-	 * @param clerk - employee gnerating this receipt
+	 * @param clerk - employee generating this receipt
 	 * @param preferred - true if the receipt is for a preferred customer,
 	 * 					  false otherwise. Only preferred customers would
 	 * 					  get a discount.
