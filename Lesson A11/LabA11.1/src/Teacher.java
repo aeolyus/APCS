@@ -1,8 +1,10 @@
-
+/**
+ * @author Richard Huang
+ */
 public class Teacher extends Person{
 	private double salary;
 	private String subject;
-	public Teacher(String name,int age,String gender,int salary,String subject){
+	public Teacher(String name,int age,String gender,String subject,int salary){
 		super(name,age,gender);
 		this.salary=salary;
 		this.subject=subject;
