@@ -45,16 +45,15 @@ public class GameLand{
     	        }
     	    }else if(gameHelper(nextRoll)==0){
     	        pA+=nextRoll;
-    	        if(pA>=101){
-                    System.out.println("Player A WINS!!!");
+    	        if(pA==pB){//bump
+        	        pB=0;
+        	        System.out.println("- BUMPED - Player A is now at "+pA);
+        	    }else if(pA>=101){
+                    System.out.println("Player A WINS!!!");//a gets more exclamation marks (3)
                     b=-1;
                     System.out.println("Player A is now at "+pA);
                     System.out.println("Player B is now at "+pB);
-    	        }else if(pA+nextRoll==pB){//bump
-        	        pB=0;
-        	        pA+=nextRoll;
-        	        System.out.println("- BUMPED - Player A is now at "+pA);
-        	    }else 
+    	        }else 
     	            System.out.println("Player A is now at "+pA);
     	    }
     	    
@@ -76,15 +75,14 @@ public class GameLand{
                     }
                 }else if(gameHelper(nextRoll)==0){
                     pB+=nextRoll;
-                    if(pB>=101){
-                        System.out.println("Player B WINS!!!");
+                    if(pB==pA){//bump
+                        pA=0;
+                        System.out.println("- BUMPED - Player B is now at "+pB);
+                    }else if(pB>=101){
+                        System.out.println("Player B WINS!!");//b gets less exclamation marks (2)
                         b=-1;
                         System.out.println("Player A is now at "+pA);
                         System.out.println("Player B is now at "+pB);
-                    }else if(pB+nextRoll==pA){//bump
-                        pA=0;
-                        pB+=nextRoll;
-                        System.out.println("- BUMPED - Player B is now at "+pB);
                     }else
                         System.out.println("Player B is now at "+pB);
                 }
