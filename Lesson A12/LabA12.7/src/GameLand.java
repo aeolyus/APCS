@@ -2,8 +2,8 @@ import java.util.*;
 /**
  * @author Richard Huang
  */
-public class GameLand{ 
-	private static Random r=new Random();
+public class GameLand{
+	private static Random r;
     private int dice1,dice2,pA,pB;
     
     /**
@@ -12,14 +12,14 @@ public class GameLand{
      * @param seed - seed for the random number generator
      */
     public GameLand(int seed){
-    	r.setSeed(seed);
+    	r=new Random(seed);
     }
     /**
      * Method that simulates the roll of two dice
      */
     public void roll(){
-        dice1=r.nextInt(5)+1;
-        dice2=r.nextInt(5)+1;
+        dice1=r.nextInt(6)+1;
+        dice2=r.nextInt(6)+1;
     } 
  
     /** Method that runs the game. For each move
@@ -79,8 +79,8 @@ public class GameLand{
                     if(pB>=101){
                         System.out.println("Player B WINS!!!");
                         b=-1;
-                        System.out.println("Player B is now at "+pB);
                         System.out.println("Player A is now at "+pA);
+                        System.out.println("Player B is now at "+pB);
                     }else if(pB+nextRoll==pA){//bump
                         pA=0;
                         pB+=nextRoll;
