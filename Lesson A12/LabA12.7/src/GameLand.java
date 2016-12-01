@@ -90,6 +90,11 @@ public class GameLand{
     	}
     }
     
+    /**
+     * Helps determine the event mode for the dice rolls
+     * @param i total dice value
+     * @return event mode
+     */
     private int gameHelper(int i){
         if(i==2||i==12)
             return 1;//lose a turn don't move
