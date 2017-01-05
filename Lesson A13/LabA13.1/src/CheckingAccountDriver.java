@@ -1,3 +1,6 @@
+/**
+ * @author Richard Huang
+ */
 public class CheckingAccountDriver{
     public static void main(String args[]){
         try{
