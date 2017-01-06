@@ -4,30 +4,21 @@ import java.util.*;
  * @author Richard Huang
  */
 public class Average {
-	String fileName;
+	String fn;
 	public Average(String s){
-		fileName=s;
+		fn=s;
 	}
-	public void scanDataAndCalculateAverage(){
+	public double scanDataAndCalculateAverage(){
 		try{
-			Scanner in=new Scanner(new File(fileName));
-			try{
-				if(!in.hasNextLine())throw new IllegalArgumentException("File is empty");
-				try{
-					int i=0,c=0;
-					while(in.hasNextLine()){
-						i+=Integer.valueOf(in.nextLine());
-						c++;
-					}
-					System.out.println("Average: "+(double)i/c);
-				}catch(NumberFormatException n){
-					System.out.println(fileName+" does not have numeric data");
-				}
-			}catch(IllegalArgumentException e){
-			}
-			in.close();
-		}catch(IOException i){
-			System.out.println("Error: "+fileName+"(The system cannot find the file specified");
-		}
+			int c=0,n=0;
+			Scanner in=new Scanner(new File(fn));
+			if(!in.hasNext())throw new NullPointerException(fn+" is empty");
+			if(!in.hasNextInt())throw new IllegalArgumentException(fn+" does not have numeric data");
+			while(in.hasNextInt()){
+				n+=in.nextInt();
+				c++;
+			}return (double)n/c;
+		}catch(IOException i){System.out.println("Error: "+fn+" (No such file or directory)");}
+		return 0;
 	}
 }
