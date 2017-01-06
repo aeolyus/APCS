@@ -4,10 +4,18 @@ import java.util.*;
  * @author Richard Huang
  */
 public class Average {
-	String fn;
+	String fn;//filename
+	/**
+	 * Constructor intitializes given file name to the filename var
+	 * @param s file name
+	 */
 	public Average(String s){
 		fn=s;
 	}
+	/**
+	 * Scans the file and calculates the average of all the numbers
+	 * @return average of the numbers in the file
+	 */
 	public double scanDataAndCalculateAverage(){
 		try{
 			int c=0,n=0;
