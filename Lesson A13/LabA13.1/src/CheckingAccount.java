@@ -22,7 +22,7 @@ public class CheckingAccount {
 		myBalance += amount;
 	}
 	public void withdraw(double amount){
-		if((myBalance-amount)<0)throw new IllegalArgumentException("Account "+myAccountNumber+" overdawn");
+		if((myBalance-amount)<0)throw new IllegalArgumentException("Account "+myAccountNumber+" overdrawn");
 		myBalance -= amount;
 	}
 }
