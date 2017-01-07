@@ -8,8 +8,8 @@ import java.util.Scanner;
  */
 public class StopWordRemover {
 	String stopList = "a an the for of at on in to her she him his he her's and with was is";
-	String inFile, outFile;
-	int maxLineLength;
+	String iF, oF;
+	int maxl,count;
 	/**
 	 * Initializes the input and output files and the max
 	 * characters per line
@@ -18,9 +18,10 @@ public class StopWordRemover {
 	 * @param max - max characters per line (including spaces)
 	 */
 	public StopWordRemover(String in, String out, int max){
-		inFile=in;
-		outFile=out;
-		maxLineLength=max;
+		iF=in;
+		oF=out;
+		maxl=max;
+		count=0;
 	}
 	/**
 	 * Removes the stop words and outputs the text to a file
@@ -28,26 +29,64 @@ public class StopWordRemover {
 	 * @return the number of words removed
 	 */
 	public int removeStopWords(){
-		try{
-			int count=0;
-			Scanner stop=new Scanner(stopList);
-			FileWriter f=new FileWriter(outFile);
-			while(stop.hasNext()){
-				String temp=stop.next();
-				Scanner in=new Scanner(new File(inFile));
-				while(in.hasNext()){
-					String word=in.next();
-					if(temp==word)
-						count++;
-					else
-						f.write(word+" ",0,+word.length()+1);
+		try{//check if file exists
+			String temp="";
+			Scanner in=new Scanner(new File(iF));
+			while(in.hasNextLine())
+				temp+=in.nextLine();
+			try{//check if file is empty
+				if(temp.equals(""))throw new NoSuchElementException();
+				String temp2=remove(temp);
+				String temp3="";
+				in=new Scanner(temp2);
+				int i=0;
+				while(in.hasNext()){//format length
+					String s=in.next();
+					if(i+s.length()>maxl){
+						temp3+="\n"+s+" ";
+						i=s.length()+1;
+					}else{
+						temp3+=s+" ";
+						i+=s.length()+1;
+					}
 				}
+				System.out.println(temp3);
+				FileWriter f=new FileWriter(oF);//write to output file
+				f.write(temp3);
+				f.close();
+				return count;
+			}catch(NoSuchElementException e){
+				System.out.println("Error: "+iF+" is empty");
 			}
-			f.close();
-			return count;
 		}catch(IOException i){
-			System.out.println(i.getMessage());
-			return 0;
+			System.out.println("Error: "+i.getMessage());
 		}
+		return 0;
+	}
+	/**
+	 * Helps remove words in the stopList String from the inputted String
+	 * @param s Input String
+	 * @return String without words in the stopList String
+	 */
+	private String remove(String s){
+		Scanner in=new Scanner(stopList);
+		while(in.hasNext()){//checks for the first word
+			String check=in.next()+" ";
+			check=check.toUpperCase().charAt(0)+check.substring(1);
+			if(s.contains(check)){
+				count++;
+				s=s.substring(0,s.indexOf(check))+s.substring(s.indexOf(check)+check.length()-1);
+			}
+		}
+		in=new Scanner(stopList);//reset
+		while(in.hasNext()){//only checks for words in the middle that match
+			String check=" "+in.next()+" ";
+			if(s.toLowerCase().contains(check)){
+				count++;
+				s=s.substring(0,s.toLowerCase().indexOf(check))+s.substring(s.toLowerCase().indexOf(check)+check.length()-1);
+				s=remove(s);
+			}
+		}
+		return s;
 	}
 }
