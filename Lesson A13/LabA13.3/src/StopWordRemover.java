@@ -37,22 +37,21 @@ public class StopWordRemover {
 			try{//check if file is empty
 				if(temp.equals(""))throw new NoSuchElementException();
 				String temp2=remove(temp);
-				String temp3="";
+				String toWrite="";
 				in=new Scanner(temp2);
 				int i=0;
 				while(in.hasNext()){//format length
 					String s=in.next();
-					if(i+s.length()>maxl){
-						temp3+="\n"+s+" ";
+					if(i+s.length()+1>maxl){
+						toWrite=toWrite.trim()+"\n"+s+" ";
 						i=s.length()+1;
 					}else{
-						temp3+=s+" ";
+						toWrite+=s+" ";
 						i+=s.length()+1;
 					}
 				}
-				System.out.println(temp3);
 				FileWriter f=new FileWriter(oF);//write to output file
-				f.write(temp3);
+				f.write(toWrite.trim());//remove the extra space
 				f.close();
 				return count;
 			}catch(NoSuchElementException e){
