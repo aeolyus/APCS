@@ -24,7 +24,7 @@ public class StopWordRemover {
 		count=0;
 	}
 	/**
-	 * Removes the stop words and outputs the text to a file
+	 * Removes the stop words and outpuths the text to a file
 	 * Each line of output is not more than max characters long
 	 * @return the number of words removed
 	 */
@@ -33,10 +33,10 @@ public class StopWordRemover {
 			String temp="";
 			Scanner in=new Scanner(new File(iF));
 			while(in.hasNextLine())
-				temp+=in.nextLine();
+				temp+=in.nextLine()+" ";
 			try{//check if file is empty
 				if(temp.equals(""))throw new NoSuchElementException();
-				String temp2=remove(temp);
+				String temp2=remove(temp.trim());
 				String toWrite="";
 				in=new Scanner(temp2);
 				int i=0;
