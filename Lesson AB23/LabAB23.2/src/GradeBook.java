@@ -4,6 +4,11 @@
 public class GradeBook {
 	private String courseName;
 	private int[][] grades;
+	/**
+	 * Makes a new gradebook with given course name and array of grades
+	 * @param s course name
+	 * @param a 2 dimensional array of grades
+	 */
 	public GradeBook(String s, int[][] a){
 		courseName=s;
 		grades=a;
