@@ -52,12 +52,8 @@ public class Life{
 		for(int i=0;i<arr.length;i++)
 			for(int j=0;j<arr[i].length;j++)
 				temp[i+1][j+1]=arr[i][j];
-		
-		int x=-1;
-		for(int i=row;i<2;i++)
-		    for(int j=col;j<2;j++)
-		        if(temp[i][j]!=0)
-		            x++;
+		row++;col++;
+		int x=(temp[row-1][col-1]+temp[row-1][col]+temp[row-1][col+1]+temp[row][col-1]+temp[row][col+1]+temp[row+1][col-1]+temp[row+1][col]+temp[row+1][col+1])/'*';
 		return x;
 	}
 	/**
@@ -76,21 +72,16 @@ public class Life{
 	 * method that simulates the game of life
 	 */
 	public void generation(){
-	    char[][] tarr=arr;
-        for(int g=0;g<5;g++){
-            for(int i=0;i<arr.length;i++)
-                for(int j=0;j<arr[i].length;j++){
-                    if(!isEmpty(arr,i,j)&&numberOfNeighbors(i,j)<2&&numberOfNeighbors(i,j)>3){
-                        tarr[i][j]=0;
-                        living--;
-                    }else if(isEmpty(arr,i,j)&&numberOfNeighbors(i,j)==3){
-                        tarr[i][j]='*';
-                        living++;
-                    }
+        for(int i=0;i<arr.length;i++)
+        	for(int j=0;j<arr[i].length;j++){
+        		if(!isEmpty(arr,i,j)&&(numberOfNeighbors(i,j)<2||numberOfNeighbors(i,j)>3)){
+        			arr[i][j]=0;
+        			living--;
+                }else if(isEmpty(arr,i,j)&&numberOfNeighbors(i,j)==3){
+                    arr[i][j]='*';
+                    living++;
                 }
-        }
-        arr=tarr;
-        
+            }        
 	}
 	
 	/**
