@@ -48,7 +48,18 @@ public class Number{
      */
     public void increment(){
         value++;
-        convert();
+        int n=0;
+        while(true){
+            if(n>=digits.size())
+                    digits.add(0,new Digit());
+            if(digits.get(n).increment()){
+                digits.get(n).value=0;
+                n++;
+            }else{
+                digits.get(n).value++;
+                break;
+            }
+        }
     }
     
     private void convert(){
