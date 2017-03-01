@@ -1,3 +1,6 @@
+/**
+ * @author Richard Huang
+ */
 public class Digit{
     int base,value;
     /**

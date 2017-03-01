@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.*;
-
+/**
+ * @author Richard Huang
+ */
 public class Number{
     int base,value;
     ArrayList<Digit> digits = new ArrayList<Digit>();
@@ -12,7 +14,7 @@ public class Number{
     public Number(){
         base=10;
         value=0;
-        digits.add(new Digit());
+        convert();
     }
     /**
      * Constructor to initialize the value and base of the number
@@ -24,7 +26,6 @@ public class Number{
         base=b;
         value=v;
         convert();
-        System.out.println("Value: "+value);
     }
     
     /**
@@ -33,10 +34,14 @@ public class Number{
      * 			in the given base
      */
     public String toString(){
+    	convert();
         String a="";
         for(Digit d:digits)
             a+=d.toString();
-        return a;
+        if(a.equals(""))
+        	return "0";
+        else
+        	return a;
     }
     /**
      * Method to increment the number by 1
@@ -52,6 +57,7 @@ public class Number{
     		if(i>=digits.size())
     			digits.add(0,new Digit());
     		digits.set(i, new Digit(value%base, base));
+        	digits.get(0).increment();
     		value/=base;
     	}
     	value=temp;
