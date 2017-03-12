@@ -99,11 +99,8 @@ public class SortStep{
 
 	/**
 	 * Initializes myArray with random integers in the range 1..largestInt
-	 *
-	 * @param numInts
-	 *            number of integers to generate (size of myArray)
-	 * @param largestInt
-	 *            largest possible random integer to create
+	 * @param numInts number of integers to generate (size of myArray)
+	 * @param largestInt largest possible random integer to create
 	 */
 	private void fillArrayWithInts(){
 
@@ -123,11 +120,8 @@ public class SortStep{
 
 	/**
 	 * Initializes myArray with a few hard-coded Strings
-	 *
-	 * @param numInts
-	 *            number of integers to generate (size of myArray)
-	 * @param largestInt
-	 *            largest possible random integer to create
+	 * @param numInts number of integers to generate (size of myArray)
+	 * @param largestInt largest possible random integer to create
 	 */
 	private void fillArrayWithStrings(){
 		myArray=new ArrayList<Comparable>();
