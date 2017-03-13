@@ -14,6 +14,14 @@ public class Sorts{
 	}
 
 	public void bubbleSort(ArrayList<Comparable> list){
+		steps=0;
+		for(int o=0;o<list.size()-1;o++)
+			for(int i=0;i<list.size()-o-1;i++){
+				steps+=3;//1 compare and 2 gets
+				if((int)list.get(i)>(int)list.get(i+1)){
+					swap(list,i,i+1);
+				}
+			}
 		System.out.println();
 		System.out.println("Bubble Sort");
 		System.out.println();
@@ -51,8 +59,7 @@ public class Sorts{
 	 * @param last ending index of range of values to be sorted
 	 */
 	public void mergeSort(ArrayList<Comparable> a,int first,int last){
-		// Add your code here
-
+		
 	}
 
 	/**
@@ -88,6 +95,9 @@ public class Sorts{
 	 * @param b index of integer to be swapped
 	 */
 	public void swap(ArrayList<Comparable> list,int a,int b){
-
+		Comparable temp=list.get(a);
+		list.set(a,list.get(b));
+		list.set(b,temp);
+		steps+=4;//2 gets and 2 sets
 	}
 }
