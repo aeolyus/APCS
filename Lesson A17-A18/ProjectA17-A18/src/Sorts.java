@@ -17,7 +17,7 @@ public class Sorts{
 		steps=0;
 		for(int o=0;o<list.size()-1;o++)
 			for(int i=0;i<list.size()-o-1;i++){
-				steps+=3;//1 compare and 2 gets
+				steps+=3;//1 compare, 2 gets
 				if((int)list.get(i)>(int)list.get(i+1)){
 					swap(list,i,i+1);
 				}
@@ -28,6 +28,17 @@ public class Sorts{
 	}
 
 	public void selectionSort(ArrayList<Comparable> list){
+		steps=0;
+		int min;
+		for(int o=0;o<list.size()-1;o++){
+			min=o;
+			for(int i=o+1;i<list.size();i++){
+				steps+=3;//1 compare, 2 gets
+				if((int)list.get(i)<(int)list.get(min))
+					min=i;
+			}
+			swap(list,o,min);
+		}
 		System.out.println();
 		System.out.println("Selection Sort");
 		System.out.println();
