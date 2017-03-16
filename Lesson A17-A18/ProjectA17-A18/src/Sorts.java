@@ -85,7 +85,16 @@ public class Sorts{
 	 * @param last last index of range of values to be sorted
 	 */
 	private void merge(ArrayList<Comparable> a,int first,int mid,int last){
-
+		ArrayList<Comparable> temp= new ArrayList<Comparable>(a.size());
+		int i=0,j=mid+1,k=0;
+		while(i<=mid&&j<=last)
+			temp.add(k++,a.get(i).compareTo(a.get(j))<=0?a.get(i++):a.get(j++));
+		while(i<=mid)
+			temp.add(k++,a.get(i++));
+		while(j<=last)
+			temp.add(k++,a.get(j++));
+		for(int p=0;p<temp.size();p++)
+			a.set(p,temp.get(p));
 	}
 
 	/**
@@ -95,7 +104,12 @@ public class Sorts{
 	 * @param last ending index of range of values to be sorted
 	 */
 	public void mergeSort(ArrayList<Comparable> a,int first,int last){
-
+		if(last>first+1){
+			int mid=(first+last)/2;
+			mergeSort(a,first,mid);
+			mergeSort(a,mid+1,last);
+			merge(a,first,mid+1,last);
+		}
 	}
 
 	/**
@@ -105,7 +119,7 @@ public class Sorts{
 	 * @param last ending index of range of values to be sorted
 	 */
 	public void quickSort(ArrayList<Comparable> a,int first,int last){
-
+		
 	}
 
 	/**
