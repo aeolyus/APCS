@@ -12,7 +12,11 @@ public class Sorts{
 	public Sorts(){
 		steps=0;
 	}
-
+	
+	/**
+	 * Sorts the list using bubble sort algorithm
+	 * @param list list to be sorted
+	 */
 	public void bubbleSort(ArrayList<Comparable> list){
 		steps=0;
 		for(int o=0;o<list.size()-1;o++)
@@ -27,6 +31,10 @@ public class Sorts{
 		System.out.println();
 	}
 
+	/**
+	 * Sorts the list using selection sort algorithm
+	 * @param list list to be sorted
+	 */
 	public void selectionSort(ArrayList<Comparable> list){
 		steps=0;
 		int min;
@@ -44,7 +52,24 @@ public class Sorts{
 		System.out.println();
 	}
 
+	/**
+	 * Sorts the list using insertion sort algorithm
+	 * @param list list to be sorted
+	 */
 	public void insertionSort(ArrayList<Comparable> list){
+		steps=0;
+		for(int o=1;o<list.size();o++){
+			int p=o;
+			steps++;//1 get
+			Comparable k=list.get(p);
+			while(p>0&&list.get(p-1).compareTo(k)>0){
+				steps+=4;//1 set, 2 get, 1 compare
+				list.set(p,list.get(p-1));
+				p--;
+			}
+			steps+=3;//1 set, 1 get, 1 compare
+			list.set(p,k);
+		}
 		System.out.println();
 		System.out.println("Insertion Sort");
 		System.out.println();
@@ -70,11 +95,11 @@ public class Sorts{
 	 * @param last ending index of range of values to be sorted
 	 */
 	public void mergeSort(ArrayList<Comparable> a,int first,int last){
-		
+
 	}
 
 	/**
-	 * Description of the Method
+	 * Sorts the list using the quick sort algorithm
 	 * @param a reference to an array of integers to be sorted
 	 * @param first starting index of range of values to be sorted
 	 * @param last ending index of range of values to be sorted
