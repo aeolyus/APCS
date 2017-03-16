@@ -18,7 +18,7 @@ public class Sorts{
 		for(int o=0;o<list.size()-1;o++)
 			for(int i=0;i<list.size()-o-1;i++){
 				steps+=3;//1 compare, 2 gets
-				if((int)list.get(i)>(int)list.get(i+1)){
+				if(list.get(i).compareTo(list.get(i+1))>0){
 					swap(list,i,i+1);
 				}
 			}
@@ -34,7 +34,7 @@ public class Sorts{
 			min=o;
 			for(int i=o+1;i<list.size();i++){
 				steps+=3;//1 compare, 2 gets
-				if((int)list.get(i)<(int)list.get(min))
+				if(list.get(i).compareTo(list.get(min))<0)
 					min=i;
 			}
 			swap(list,o,min);
