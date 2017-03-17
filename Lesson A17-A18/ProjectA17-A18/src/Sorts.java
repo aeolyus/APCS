@@ -93,7 +93,7 @@ public class Sorts{
 			temp.add(a.get(i++));
 		while(j<=last)
 			temp.add(a.get(j++));
-		for(int o=first;o<last;o++)
+		for(int o=first;o<=last;o++)
 			a.set(o,temp.get(o-first));
 	}
 
@@ -104,11 +104,11 @@ public class Sorts{
 	 * @param last ending index of range of values to be sorted
 	 */
 	public void mergeSort(ArrayList<Comparable> a,int first,int last){
-		if(last-first<1){
+		if(!(last-first<1)){
 			int mid=(last+first)/2;
 			mergeSort(a,first,mid);
 			mergeSort(a,mid+1,last);
-			merge(a,first,mid,last);
+			merge(a,first,mid+1,last);
 		}
 	}
 
@@ -119,6 +119,7 @@ public class Sorts{
 	 * @param last ending index of range of values to be sorted
 	 */
 	public void quickSort(ArrayList<Comparable> a,int first,int last){
+		steps=0;
 		int i=first,j=last;
 		Comparable pivot=a.get((first+last)/2);
 		while(i<=j){
