@@ -3,7 +3,6 @@ import java.util.*;
 /**
  * Contains the sorting methods bubble sort, selection sort, insertion sort,
  * merge sort, quick sort
- * 
  * @author Richard Huang
  */
 public class Sorts{
