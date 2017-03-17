@@ -87,14 +87,22 @@ public class Sorts{
 	private void merge(ArrayList<Comparable> a,int first,int mid,int last){
 		ArrayList<Comparable> temp= new ArrayList<Comparable>(a.size());
 		int i=first,j=mid;
-		while(i<mid&&j<=last)
+		while(i<mid&&j<=last){
 			temp.add(a.get(i).compareTo(a.get(j))>0?(a.get(j++)):(a.get(i++)));
-		while(i<mid)
+			steps+=5;//1 compare, 1 add, 3 gets
+		}
+		while(i<mid){
 			temp.add(a.get(i++));
-		while(j<=last)
+			steps+=2;//1 add, 1 get
+		}
+		while(j<=last){
 			temp.add(a.get(j++));
-		for(int o=first;o<=last;o++)
+			steps+=2;//1 add, 1 get
+		}
+		for(int o=first;o<=last;o++){
 			a.set(o,temp.get(o-first));
+			steps+=2;//1 add, 1 get
+		}
 	}
 
 	/**
@@ -119,14 +127,18 @@ public class Sorts{
 	 * @param last ending index of range of values to be sorted
 	 */
 	public void quickSort(ArrayList<Comparable> a,int first,int last){
-		steps=0;
 		int i=first,j=last;
 		Comparable pivot=a.get((first+last)/2);
+		steps++;//1 get
 		while(i<=j){
-			while(a.get(i).compareTo(pivot)<0)
+			while(a.get(i).compareTo(pivot)<0){
+				steps+=3;//2 comparisons, 1 get
 				i++;
-			while(a.get(j).compareTo(pivot)>0)
+			}
+			while(a.get(j).compareTo(pivot)>0){
+				steps+=3;//2 comparisons, 1 get
 				j--;
+			}
 			if(i<=j)
 				swap(a,i++,j--);
 		}
