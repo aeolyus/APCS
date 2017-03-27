@@ -56,9 +56,9 @@ public class Store{
     	while(lo<=hi){
     		int mid=(lo+hi)/2;
     		if(list.get(mid).compareTo(i)>0)
-    			hi=mid+1;
+    			hi=mid-1;
     		else if(list.get(mid).compareTo(i)<0)
-    			lo=mid-1;
+    			lo=mid+1;
     		else if(list.get(mid).equals(i))
     			return mid;
     	}
