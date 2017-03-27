@@ -34,6 +34,36 @@ public class Store{
     	s+=toString();
     	System.out.println(s);
     }
+    public void testSearch(){
+    	int id,inv,x;
+    	Scanner in=new Scanner(System.in);
+    	System.out.println("Testing search algorithm\n");
+    	do{
+    		System.out.println();
+    		System.out.print("Enter Id value to search for (-1 to quit) --> ");
+    		id=in.nextInt();
+    		if(id!=-1){
+    			x=bsearch(new Item(id,0));
+    			if(x==-1)
+    				System.out.println("Id # "+id+": No such part in stock");
+    			else
+    				System.out.println("Id # "+id+": Inventory = "+list.get(x).getInv());
+    		}
+    	}while(id>=0);
+    }
+    public int bsearch(Item i){
+    	int lo=0,hi=list.size()-1;
+    	while(lo<=hi){
+    		int mid=(lo+hi)/2;
+    		if(list.get(mid).compareTo(i)>0)
+    			hi=mid+1;
+    		else if(list.get(mid).compareTo(i)<0)
+    			lo=mid-1;
+    		else if(list.get(mid).equals(i))
+    			return mid;
+    	}
+    	return -1;
+    }
     /**
 	 * Takes in entire vector, but will merge the following sections together:
 	 * Left sublist from a[first]..a[mid], right sublist from a[mid+1]..a[last].
