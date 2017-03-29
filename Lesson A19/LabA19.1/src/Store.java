@@ -1,10 +1,21 @@
 import java.io.*;
 import java.util.*;
+/**
+ * @author Richard Huang
+ */
 public class Store{
-    private ArrayList<Item> list=new ArrayList<Item>();
+    private ArrayList<Item> list=new ArrayList<Item>();//list of items
+    /**
+     * Creates a store and loads the data from a given file via the file name
+     * @param s file name
+     */
     public Store(String s){
     	loadFile(s);
     }
+    /**
+     * Loads the data from the given file into the list
+     * @param s file name
+     */
     public void loadFile(String s){
     	try{
         	Scanner in=new Scanner(new File(s));
@@ -20,6 +31,9 @@ public class Store{
     public void sort(){
         mergeSort(list,0,list.size()-1);
     }
+    /**
+     * Returns the store as a string with the items and their id and inventory
+     */
     public String toString(){
     	String temp="";
         for(int i=0;i<list.size();i++){
@@ -29,11 +43,17 @@ public class Store{
         }
         return temp;
     }
+    /**
+     * Prints the store information
+     */
     public void displayStore(){
     	String s="    Id    Inv\n\n";
     	s+=toString();
     	System.out.println(s);
     }
+    /**
+     * Uses binary search algorithm to search for an item
+     */
     public void testSearch(){
     	int id,inv,x;
     	Scanner in=new Scanner(System.in);
@@ -51,6 +71,11 @@ public class Store{
     		}
     	}while(id>=0);
     }
+    /**
+     * Searches through the list for an item using binary search algorithm
+     * @param i item to search for
+     * @return item index in the list
+     */
     public int bsearch(Item i){
     	int lo=0,hi=list.size()-1;
     	while(lo<=hi){
