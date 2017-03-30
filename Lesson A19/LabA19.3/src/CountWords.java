@@ -6,44 +6,58 @@ public class CountWords{
     private String fileName;
     public CountWords(String s){
         loadFile(s);
+        fileName=s;
     }
     public void loadFile(String a){
-        fileName=a;
         try{
             Scanner s=new Scanner(new File(a));
             while(s.hasNext()){
                 count++;
-                int t=0;
-                String b=s.next();
-                if(check(b)==0)
-                    unique.get(t++).incrementCount();
+                String b=s.next().toLowerCase().trim();
+                System.out.println(":"+b+":"+bsearch(b));
+                if(bsearch(b)>=0)
+                    unique.get(bsearch(b)).incrementCount();
                 else
                     unique.add(new Word(b));
             }
         }catch(IOException e){
-            e.printStackTrace();
+            System.out.println("No such file or directory");
         }
     }
-    public String printStats(){
+    public void printStats(){
         String temp="File: "+fileName;
         temp+="\nTotal number of unique words in the file: "+unique.size();
-        temp+="\nTotal numer of words in file: "+count;
+        temp+="\nTotal number of words in file: "+count;
         temp+="\nTop 30 words are:\n";
         for(int i=0;i<unique.size();i++)
-            temp+=i+1+"   "+unique.get(i).getCount()+"   "+unique.get(i).getString()+"\n";
-        return temp;
+            temp+=String.format("%2d   %3d   %7s\n",i,unique.get(i).getCount(),unique.get(i).getString());
+        System.out.println(temp);
     }
     
-    private int check(String s){
-        int l=0,h=unique.size()-1;
-        while(l<=h){
-            int mid=(l+h)/2;
+    private int bsearch(String s){
+    	insertionSort(unique);
+        int lo=0,hi=unique.size()-1;
+        while(lo<=hi){
+            int mid=(lo+hi)/2;
+            System.out.println(s+":"+unique.get(mid).getString());
             if(s.compareTo(unique.get(mid).getString())>0)
-                l=mid+1;
+                hi=mid-1;
             else if(s.compareTo(unique.get(mid).getString())<0)
-                h=mid-1;
-            else return mid;
+                lo=mid+1;
+            else if(s.equals(unique.get(mid).getString()))
+                return mid;
         }
         return -1;
     }
+	public void insertionSort(ArrayList<Word> list){
+		for(int o=1;o<list.size();o++){
+			int p=o;
+			Word k=list.get(p);
+			while(p>0&&list.get(p-1).compareTo(k)>0){
+				list.set(p,list.get(p-1));
+				p--;
+			}
+			list.set(p,k);
+		}
+	}
 }
