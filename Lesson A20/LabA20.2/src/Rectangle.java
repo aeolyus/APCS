@@ -10,6 +10,6 @@ public class Rectangle implements Measurable{
         return length*width;
     }
     public String toString(){
-        return "Rectangle:\nlength = "+length+"\nwidth= "+width+"\nperimeter= "+getPerimeter()+"\narea= "+getArea()+"\n";
+        return "Rectangle:\nlength = "+length+"\nwidth = "+width+"\nperimeter = "+getPerimeter()+"\narea = "+getArea()+"\n";
     }
 }

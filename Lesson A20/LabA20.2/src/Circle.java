@@ -10,6 +10,6 @@ public class Circle implements Measurable{
         return Math.PI*radius*radius;
     }
     public String toString(){
-        return "Circle:\nradius = "+radius+"\nperimeter= "+getPerimeter()+"\narea= "+getArea()+"\n";
+        return "Circle:\nradius = "+radius+"\ncircumference = "+getPerimeter()+"\narea = "+getArea()+"\n";
     }
 }

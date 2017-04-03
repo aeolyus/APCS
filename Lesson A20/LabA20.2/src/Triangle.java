@@ -11,6 +11,6 @@ public class Triangle implements Measurable{
         return Math.sqrt(p*(p-a)*(p-b)*(p-c));
     }
     public String toString(){
-        return "Triangle:\nperimeter= "+getPerimeter()+"\narea= "+getArea()+"\n";
+        return "Triangle:\nside1 = "+a+"\nside2 = "+b+"\nside3 = "+c+"\nperimeter = "+getPerimeter()+"\narea = "+getArea()+"\n";
     }
 }
