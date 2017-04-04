@@ -30,6 +30,6 @@ public class Rectangle implements Measurable{
      */
     @Override
     public String toString(){
-        return "Rectangle:\nlength = "+length+"\nwidth = "+width+"\nperimeter = "+getPerimeter()+"\narea = "+getArea()+"\n";
+        return "Rectangle:\n   length = "+length+"\n   width = "+width+"\n   perimeter = "+getPerimeter()+"\n   area = "+getArea()+"\n";
     }
 }

@@ -13,7 +13,7 @@ public class SingingRectangle extends Rectangle{
     @Override
     public String toString(){
         String s=super.toString();
-        s+="Rectangle song:\nI'm a rectangle.\nYou can see.\nI have four sides.\nCount with me\n2 are short and 2 are long.\nCome along and sing my song.\n";
+        s+="Rectangle song:\n   I'm a rectangle.\n   You can see.\n   I have four sides.\n   Count with me\n   2 are short and 2 are long.\n   Come along and sing my song.\n";
         return s;
     }
 }

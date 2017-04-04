@@ -29,6 +29,6 @@ public class Circle implements Measurable{
      */
     @Override
     public String toString(){
-        return "Circle:\nradius = "+radius+"\ncircumference = "+getPerimeter()+"\narea = "+getArea()+"\n";
+        return "Circle:\n   radius = "+radius+"\n   circumference = "+getPerimeter()+"\n   area = "+getArea()+"\n";
     }
 }

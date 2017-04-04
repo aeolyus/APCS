@@ -32,6 +32,6 @@ public class Triangle implements Measurable{
      */
     @Override
     public String toString(){
-        return "Triangle:\nside1 = "+a+"\nside2 = "+b+"\nside3 = "+c+"\nperimeter = "+getPerimeter()+"\narea = "+getArea()+"\n";
+        return "Triangle:\n   side1 = "+a+"\n   side2 = "+b+"\n   side3 = "+c+"\n   perimeter = "+getPerimeter()+"\n   area = "+getArea()+"\n";
     }
 }
