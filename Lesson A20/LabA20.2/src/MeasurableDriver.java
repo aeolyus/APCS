@@ -1,7 +1,7 @@
 import java.util.*;
 public class MeasurableDriver{
     public static void main(String args[]){
-        ArrayList<Measurable> test=new ArrayList<Measurable>();
+        ArrayList<Measurable> test=new ArrayList<Measurable>();//add a bunch of random shapes to an arraylist
         test.add(new Circle(1));
         test.add(new Rectangle(1,1));
         test.add(new Triangle(3,4,5));
@@ -13,7 +13,7 @@ public class MeasurableDriver{
         test.add(new Rectangle(2,3));
         test.add(new Triangle(11,60,61));
         for(Measurable m:test){
-            System.out.println(m.toString());
+            System.out.println(m.toString());//print out every shape in the arraylist
         }
     }
 }
