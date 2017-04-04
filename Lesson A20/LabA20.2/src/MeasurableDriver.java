@@ -1,4 +1,7 @@
 import java.util.*;
+/**
+ * @author Richard Huang
+ */
 public class MeasurableDriver{
     public static void main(String args[]){
         ArrayList<Measurable> test=new ArrayList<Measurable>();//add a bunch of random shapes to an arraylist

@@ -1,3 +1,6 @@
+/**
+ * @author Richard Huang
+ */
 public interface Measurable{
     //returns the perimeter
     public double getPerimeter();

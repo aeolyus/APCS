@@ -1,3 +1,6 @@
+/**
+ * @author Richard Huang
+ */
 public class SingingRectangle extends Rectangle{
 	/**
 	 * Creates a rectangle with the given dimensions
