@@ -3,10 +3,10 @@
  */
 public abstract class Customer{
     private String name;
-    private boolean member;
+    protected boolean member=true;
 	protected String memberType="";
-    protected double serviceDiscountRate;
-    private double PRODUCT_DISCOUNT_RATE=.1;
+	protected double SERVICE_DISCOUNT_RATE;
+    private final double PRODUCT_DISCOUNT_RATE=.1;
     public Customer(String n){
         name=n;
     }
@@ -33,12 +33,14 @@ public abstract class Customer{
         return price*PRODUCT_DISCOUNT_RATE;
     }
     public double getServiceDiscountRate(){
-        return serviceDiscountRate;
+        return SERVICE_DISCOUNT_RATE;
     }
     public double getServiceDiscount(double price){
-        return price*serviceDiscountRate;
+        return price*SERVICE_DISCOUNT_RATE;
     }
     public String toString(){
-    	return memberType;
+    	String temp="customer: "+name;
+    	temp+="\nMembership type: "+memberType+"\n";
+    	return temp;
     }
 }

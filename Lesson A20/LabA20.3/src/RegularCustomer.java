@@ -4,6 +4,8 @@
 public class RegularCustomer extends Customer{
     public RegularCustomer(String n){
         super(n);
-        memberType="regular";
+        memberType="Not a member";
+        member=false;
+        SERVICE_DISCOUNT_RATE=0;
     }
 }
