@@ -1,7 +1,10 @@
+/**
+ * @author Richard Huang
+ */
 public abstract class Customer{
     private String name;
-	protected String memberType;
     private boolean member;
+	protected String memberType="";
     protected double serviceDiscountRate;
     private double PRODUCT_DISCOUNT_RATE=.1;
     public Customer(String n){
@@ -23,7 +26,7 @@ public abstract class Customer{
     public void setMemberType(String t){
         memberType=t;
     }
-    public double getProducDiscountRate(){
+    public double getProductDiscountRate(){
         return PRODUCT_DISCOUNT_RATE;
     }
     public double getProductDiscount(double price){
@@ -35,5 +38,7 @@ public abstract class Customer{
     public double getServiceDiscount(double price){
         return price*serviceDiscountRate;
     }
-    public abstract String toString();
+    public String toString(){
+    	return memberType;
+    }
 }
