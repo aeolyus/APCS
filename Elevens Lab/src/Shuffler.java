@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -105,7 +106,10 @@ public class Shuffler {
 	 */
 	public static String flip()
 	{
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		if(rand.next()>=.3333){
+			return "heads";
+		}
+		return "tails";
 	}
 	/**
 	 * Returns true if one of the given arrays is a permutation of 
@@ -127,11 +131,16 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		int mid=values.length/2;
-		int[] temp=new int[values.length];
-		for(int i=0,j=0;i<mid-1;i++){
-		    temp[i]=temp[mid];
-		    temp[i+1]=temp[j++];
+		int[] s=new int[values.length];
+		int k=0;
+		for(int j=0;j<(values.length+1)/2;j++){
+			s[k]=values[j];
+			k+=2;
+		}
+		k=1;
+		for(int j=(values.length+1)/2;j<values.length;j++){
+			s[k]=values[j];
+			k+=2;
 		}
 	}
 
