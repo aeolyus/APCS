@@ -106,7 +106,7 @@ public class Shuffler {
 	 */
 	public static String flip()
 	{
-		if(rand.next()>=.3333){
+		if(rand.nextDouble()>=.3333){
 			return "heads";
 		}
 		return "tails";
@@ -121,7 +121,7 @@ public class Shuffler {
 	 */
 	public static boolean arePermutations(int[] a, int[] b)
 	{
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		return false;
 	}
 
 	/**
