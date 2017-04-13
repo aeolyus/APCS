@@ -106,10 +106,10 @@ public class Shuffler {
 	 */
 	public static String flip()
 	{
-		if(rand.nextDouble()>=.3333){
-			return "heads";
+		if(rand.nextInt(3)==2){
+			return "tails";
 		}
-		return "tails";
+		return "heads";
 	}
 	/**
 	 * Returns true if one of the given arrays is a permutation of 
@@ -121,7 +121,14 @@ public class Shuffler {
 	 */
 	public static boolean arePermutations(int[] a, int[] b)
 	{
-		return false;
+		if(a.length!=b.length)
+			return false;
+		int count=0;
+		for(int i=0;i<a.length;i++)
+			for(int j=0;j<b.length;j++)
+				if(a[i]==b[j])
+				 count++;
+		return count==a.length;
 	}
 
 	/**
@@ -142,6 +149,8 @@ public class Shuffler {
 			s[k]=values[j];
 			k+=2;
 		}
+		for(int i=0;i<values.length;i++)
+			values[i]=s[i];
 	}
 
 	/**
@@ -156,6 +165,11 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for(int i=values.length-1;i>0;i--){
+			int temp=values[i];
+			int r=rand.nextInt(i+1);
+			values[i]=values[r];
+			values[r]=temp;
+		}
 	}
 }
