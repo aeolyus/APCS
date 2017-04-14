@@ -34,6 +34,7 @@ public class Deck {
 		    for(int j=0;j<suits.length;j++)
 		        cards.add(new Card(ranks[i],suits[j],values[i]));
 		size=cards.size();
+		shuffle();
 	}
 
 
@@ -59,7 +60,13 @@ public class Deck {
 	 */
 	public void shuffle() {
 		Random rand = new Random(20);
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		for(int i=cards.size()-1;i>0;i--){
+			Card temp=cards.get(i);
+			int r=rand.nextInt(i+1);
+			cards.set(i,cards.get(r));
+			cards.set(r,temp);
+		}
+		size=cards.size();
 	}
 
 	/**
