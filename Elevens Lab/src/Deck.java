@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -29,11 +30,13 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-	    cards=new ArrayList<Card>();
-		for(int i=0;i<ranks.length;i++)
-		    for(int j=0;j<suits.length;j++)
-		        cards.add(new Card(ranks[i],suits[j],values[i]));
-		size=cards.size();
+		cards = new ArrayList<Card>();
+		for (int j = 0; j < ranks.length; j++) {
+			for (String suitString : suits) {
+				cards.add(new Card(ranks[j], suitString, values[j]));
+			}
+		}
+		size = cards.size();
 		shuffle();
 	}
 
@@ -43,7 +46,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-        return size==0;
+		return size == 0;
 	}
 
 	/**
@@ -51,7 +54,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-        return size;
+		return size;
 	}
 
 	/**
@@ -59,14 +62,15 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		Random rand = new Random(20);
-		for(int i=cards.size()-1;i>0;i--){
-			Card temp=cards.get(i);
-			int r=rand.nextInt(i+1);
-			cards.set(i,cards.get(r));
-			cards.set(r,temp);
+		for (int k = cards.size() - 1; k > 0; k--) {
+			int howMany = k + 1;
+			int start = 0;
+			int randPos = (int) (Math.random() * howMany) + start;
+			Card temp = cards.get(k);
+			cards.set(k, cards.get(randPos));
+			cards.set(randPos, temp);
 		}
-		size=cards.size();
+		size = cards.size();
 	}
 
 	/**
@@ -75,9 +79,12 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-	    if(size!=0)
-	        return cards.get(-1+size--);
-	    return null;
+		if (isEmpty()) {
+			return null;
+		}
+		size--;
+		Card c = cards.get(size);
+		return c;
 	}
 
 	/**
